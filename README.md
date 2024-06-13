@@ -14,7 +14,11 @@ This is a bitA test project that integrates with PostgreSQL for data storage and
 ## Installation
 
 1. Install the dependencies: pip install -r requirements.txt
-2. Set up the PostgreSQL database:
+2. Create a virtual environment and activate it:
+
+   - python3 -m venv venv
+   - source venv/bin/activate
+3. Set up the PostgreSQL database:
    
    - Create a PostgreSQL database.
    - Update the database connection string in `config.py` with your database credentials.
@@ -28,7 +32,11 @@ This is a bitA test project that integrates with PostgreSQL for data storage and
 4. To use the web crawling functionality:
    
    - Run `app/crawl/crawl_data.py` file using Selenium.
+5. To access the simple website that displays product data with pagination:
+
+    Open your web browser and go to http://localhost:8000/website.
 
 ## API Endpoints
 
 - `/products`: CRUD operations for items stored in the PostgreSQL database.
+- `/website`: Displays a simple website with product data and pagination.

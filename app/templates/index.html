@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Product List</h1>
+        <div class="product-list">
+            {% for product in products %}
+            <div class="product-item">
+                <img src="{{ product.product_images[0].url }}" alt="{{ product.name }}">
+                <h2>{{ product.name }}</h2>
+                <p>Current Price: {{ product.current_price }} VND</p>
+                <p>Original Price: {{ product.original_price }} VND</p>
+                <p>Discount: {{ product.discount_percent }}%</p>
+                <p>Rating: {{ product.rate }} ({{ product.rate_counts }} reviews)</p>
+                <p>Sold: {{ product.sold }}</p>
+                <p>Location: {{ product.location }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            <button onclick="window.location.href='/?page={{ page-1 }}'" {% if page <= 1 %}disabled{% endif %}>Previous</button>
+            <span>Page {{ page }} of {{ total_pages }}</span>
+            <button onclick="window.location.href='/?page={{ page+1 }}'" {% if page >= total_pages %}disabled{% endif %}>Next</button>
+        </div>
+    </div>
+</body>
+</html>
